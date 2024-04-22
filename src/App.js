@@ -17,7 +17,7 @@ const App = () => {
         <Route index element={<Home />} />         {/* child component */}
         <Route path='Flashcard' element={<FlashCard />} />
         <Route path='Flashcard/Mathematics' element={<Mathematics />} />
-        <Route path='Flashcard/Mathematics/Relation-and-Functions' element={<Relation />} />
+        <Route path='Flashcard/Mathematics/Relation-and-Function' element={<Relation />} />
 
         {/* <Route path='flashsub' element={<FlashSub />} /> */}
       </Routes>

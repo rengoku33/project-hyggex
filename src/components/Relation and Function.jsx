@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import logoBOT from '../assets/logo-bot.png';
-import { FaAngleLeft, FaAngleRight, FaPlusCircle  } from "react-icons/fa";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { BiFullscreen } from "react-icons/bi";
+import { MdOutlineLightbulb } from "react-icons/md";
+import { IoMdVolumeHigh } from "react-icons/io";
+import { FaPlus } from "react-icons/fa6";
+
 
 import { motion } from 'framer-motion';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faSync } from '@fortawesome/free-solid-svg-icons';
+import FAQ from './accordion/FAQ';
 
 const Relation = () => {
     const [selected, setSelected] = useState(1);
@@ -52,7 +55,7 @@ const Relation = () => {
                         <button
                             key={index}
                             onClick={() => setSelected(index)}
-                            className={`text-black text-lg mx-6 ${selected === index ? 'border-b-2 border-blue-700 font-bold' : ''}`}
+                            className={`text-black text-lg mx-6 ${selected === index ? 'border-b-2 border-blue-800 text-blue-900 font-bold' : ''}`}
                         >
                             {link}
                         </button>
@@ -71,32 +74,40 @@ const Relation = () => {
                         <span className="text-white text-2xl font-semibold">{isFlipped ? '9 + 6 + 7x - 2x - 3' : '5x + 12'}</span>
                     </div> */}
 
-                        <div className="flip-card-front w-[100%] h-[100%] bg-cover-border-[1px] flex items-center justify-center flip-card rounded-2xl bg-gradient-to-tr from-sky-500 to-blue-950">
+                        <div className="flip-card-front w-[100%] h-[100%] bg-cover-border-[1px] flex items-center justify-center cursor-pointer rounded-2xl bg-gradient-to-tr from-blue-600 to-blue-950">
+                            <MdOutlineLightbulb className="absolute top-5 left-1 flex w-[9%] h-[10%] bg-cover-border-[1px] text-white cursor-pointer" />
+                            <IoMdVolumeHigh className="absolute top-5 right-2 flex w-[9%] h-[10%] bg-cover-border-[1px] text-white cursor-pointer" />
                             <h1 className="text-white text-2xl font-semibold">9 + 6 + 7x - 2x - 3</h1>
                         </div>
-                        <div className="flip-card-back w-[100%] h-[100%] bg-cover-border-[1px] flex items-center justify-center flip-card rounded-2xl bg-gradient-to-tr from-sky-500 to-blue-950">
+                        <div className="flip-card-back w-[100%] h-[100%] bg-cover-border-[1px] flex items-center justify-center cursor-pointer rounded-2xl bg-gradient-to-tr from-sky-500 to-blue-950">
+                            <MdOutlineLightbulb className="absolute top-5 left-1 flex w-[9%] h-[10%] bg-cover-border-[1px] text-white cursor-pointer" />
+                            <IoMdVolumeHigh className="absolute top-5 right-2 flex w-[9%] h-[10%] bg-cover-border-[1px] text-white cursor-pointer" />
                             <h1 className="text-white text-2xl font-semibold">5x + 12</h1>
                         </div>
                     </motion.div>
                 </div>
                 {/* bot-box */}
                 <div className="bg-transparent h-16 flex justify-center items-center">
-                    <span className=" mx-24 text-blue-700 cursor-pointer" style={{ fontSize: 27, fontWeight: 600 }}>&#10227;</span>
+                    <span className=" mx-24 text-blue-800 cursor-pointer font-semibold" style={{ fontSize: 27 }}>&#10227;</span>
                     <span onClick={decrement} className=" mx-6 bg-gradient-to-t from-blue-700 to-blue-950 text-white rounded-full px-1 py-1 cursor-pointer" style={{ fontSize: 25, fontWeight: 600 }}><FaAngleLeft className="text-white cursor-pointer" /></span>
                     <span className=" mx-6 cursor-pointer font-bold">{count}/10</span>
                     <span onClick={increment} className=" mx-6 bg-gradient-to-t from-blue-700 to-blue-950 text-white rounded-full px-1 py-1 cursor-pointer" style={{ fontSize: 25, fontWeight: 600 }}><FaAngleRight className="text-white cursor-pointer" /></span>
-                    <span className=" mx-24 text-blue-700 cursor-pointer" style={{ fontSize: 25, fontWeight: 600 }}><BiFullscreen className="cursor-pointer" /></span>
+                    <span className=" mx-24 text-blue-800 cursor-pointer font-semibold" style={{ fontSize: 25 }}><BiFullscreen className="cursor-pointer" /></span>
                 </div>
             </div>
-                {/* bot img */}
-                <div className="relative top-7 w-full h-full flex justify-center items-center">
-                <img src={logoBOT} alt='High-jacks' className="h-24 w-60 mr-[50%]"/>
+            {/* bot img */}
+            <div className="relative top-7 w-full h-full flex justify-center items-center">
+                <img src={logoBOT} alt='High-jacks' className="h-24 w-60 mr-[50%] cursor-pointer" />
                 <div className=" flex mr-25">
-                <FaPlusCircle className=" text-blue-700" />
-                <h1>Create Flashcard</h1>
+                    <FaPlus className="bg-gradient-to-t from-blue-700 to-blue-950 text-white rounded-full px-2 py-1 cursor-pointer mr-3" style={{ fontSize: 33 }} />
+                    <h1 className=" text-xl text-blue-800 font-semibold">Create Flashcard</h1>
                 </div>
-                </div>
-
+            </div>
+            {/* Accordion */}
+            <div className="ml-11 mt-24 top-7 w-[70%]">
+                <h1 className=" text-2xl text-blue-800 font-bold mb-3">FAQ</h1>
+                <FAQ />
+            </div>
         </div>
     )
 }

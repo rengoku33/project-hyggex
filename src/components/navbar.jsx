@@ -1,7 +1,8 @@
 import React from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";                      // outlet to persist a component // link is like an anchor tag
 import { Fragment } from "react";
-import { ReactComponent as LogoX } from '../assets/logox.svg';
+// import { ReactComponent as LogoX } from '../assets/logox.svg';
+import logoTOP from '../assets/logo-top.png';
 import { FiHome } from "react-icons/fi";
 import Home from "./home";
 
@@ -38,7 +39,7 @@ const NavBar = () => {
         <Fragment>
             <div className="h-16 w-full flex justify-between mb-6 px-9">
                 <Link className="flex items-center" to='/'>
-                    <LogoX className="h-12 w-12" />
+                    <img src={logoTOP} alt="Hi-jacks" className="h-12" />
                 </Link>
                 <div className="flex items-center">
                     <Link className="px-3 py-1" to='/'>Home</Link>
